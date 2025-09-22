@@ -16,7 +16,7 @@ export const author = defineType({
       type: "string",
     }),
     defineField({
-      name: "uesrname",
+      name: "username",
       type: "string",
     }),
     defineField({
@@ -28,7 +28,7 @@ export const author = defineType({
       type: "url",
     }),
     defineField({
-      name: "bio",
+      name: "profile",
       type: "text",
     }),
   ],
