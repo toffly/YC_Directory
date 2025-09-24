@@ -28,7 +28,7 @@ export const author = defineType({
       type: "url",
     }),
     defineField({
-      name: "profile",
+      name: "bio",
       type: "text",
     }),
   ],

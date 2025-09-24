@@ -165,7 +165,7 @@
         },
         "optional": true
       },
-      "uesrname": {
+      "username": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
@@ -186,7 +186,7 @@
         },
         "optional": true
       },
-      "bio": {
+      "profile": {
         "type": "objectAttribute",
         "value": {
           "type": "string"

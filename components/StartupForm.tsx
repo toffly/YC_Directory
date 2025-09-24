@@ -10,6 +10,7 @@ import { formSchema } from "@/lib/validation";
 import { toast } from "sonner";
 import z from "zod";
 import { useRouter } from "next/navigation";
+import { createPitch } from "@/lib/actions";
 
 const StartupForm = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -28,22 +29,18 @@ const StartupForm = () => {
 
       await formSchema.parseAsync(formValues);
 
-      console.log(formValues);
+      const result = await createPitch(prevState, formData, pitch);
 
-      //   const result = await createDiffieHellman(prevState, formData, pitch)
-
-      //   console.log(result);
-
-      //   if (result.status === "SUCCESS") {
-      //     toast.success("Error", {
-      //       description: "Your startup pitch has been created successfully.",
-      //     });
-      //     router.push(`/startup/${result.id}`);
-      //   }
-      //   return result;
+      if (result.status === "SUCCESS") {
+        toast.success("Success", {
+          description: "Your startup pitch has been created successfully.",
+        });
+        router.push(`/startup/${result._id}`);
+      }
+      return result;
     } catch (error) {
       if (error instanceof z.ZodError) {
-        const fieldErrors = error.flatten().fieldErrors;
+        const fieldErrors = z.treeifyError(error);
 
         setErrors(fieldErrors as unknown as Record<string, string>);
 
