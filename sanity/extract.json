@@ -186,7 +186,7 @@
         },
         "optional": true
       },
-      "profile": {
+      "bio": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
