@@ -54,6 +54,9 @@
   "overrides": {
     "next-auth": {
       "next": "15.6.0-canary.32"
+    },
+    "next-sanity": {
+      "next": "15.6.0-canary.32"
     }
   }
 }
